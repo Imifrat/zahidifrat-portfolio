@@ -5,7 +5,7 @@ import EmailReveal from './EmailReveal'
 import PhoneReveal from './PhoneReveal'
 import { CloseBtn, SectionHead } from './About'
 
-const W3F_KEY = 'c7025c1f-44e2-43d0-83c4-afcdabe97587'
+const W3F_KEY = '15e3722a-43f9-4ead-a5fe-49da99f91d04'
 
 /* ── Success popup ── */
 function SuccessPopup({ onClose }) {
@@ -125,26 +125,28 @@ export default function Contact({ onClose }) {
     setSending(true)
     setError('')
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: W3F_KEY,
-          name:       form.name,
-          email:      form.email,
-          subject:    form.subject || 'Portfolio Enquiry',
-          message:    form.message,
-        }),
+      const payload = new FormData()
+      payload.append('access_key', W3F_KEY)
+      payload.append('name',       form.name)
+      payload.append('email',      form.email)
+      payload.append('subject',    form.subject || 'Portfolio Enquiry')
+      payload.append('message',    form.message)
+      payload.append('redirect',   'false')
+
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body:   payload,
       })
       const data = await res.json()
       if (data.success) {
         setSuccess(true)
         setForm({ name: '', email: '', subject: '', message: '' })
       } else {
-        setError('Something went wrong. Please try again.')
+        setError(data.message || 'Submission failed. Please try again.')
       }
-    } catch {
-      setError('Network error. Please check your connection.')
+    } catch (err) {
+      setError(`Error: ${err.message}`)
+      console.error('Web3Forms error:', err)
     } finally {
       setSending(false)
     }
