@@ -239,7 +239,8 @@ html.light {
 .panel-in  { animation: panelIn  0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 .panel-out { animation: panelOut 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 
-@keyframes blink { 0%, 100% { opacity: 1 } 50% { opacity: 0 } }
+@keyframes blink  { 0%, 100% { opacity: 1 } 50% { opacity: 0 } }
+@keyframes shrink { from { width: 100% } to { width: 0% } }
 .cursor-blink { animation: blink 0.9s step-end infinite; }
 
 /* ════════════════════════════════════════════
