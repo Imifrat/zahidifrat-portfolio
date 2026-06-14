@@ -33,8 +33,8 @@ export default function LeftPanel() {
     <aside
       className="hidden lg:flex flex-col flex-shrink-0 relative"
       style={{
-        width: '34%',
-        minWidth: 230,
+        width: '38%',
+        minWidth: 260,
         background: 'var(--bg-left)',
         backdropFilter: 'blur(30px)',
         borderRight: '1px solid var(--panel-divider)',
@@ -65,8 +65,8 @@ export default function LeftPanel() {
         <div
           className="mb-5 overflow-hidden flex-shrink-0"
           style={{
-            width: 110,
-            height: 110,
+            width: 130,
+            height: 130,
             borderRadius: '50%',
             border: '1px solid var(--border-avatar)',
             boxShadow: '0 0 0 5px var(--bg-card)',
@@ -81,16 +81,10 @@ export default function LeftPanel() {
 
         {/* Name */}
         <h2
-          className="poppins font-black uppercase leading-tight mb-1"
-          style={{ fontSize: 'clamp(0.8rem, 1.9vw, 1.1rem)', letterSpacing: '0.06em', color: 'var(--text-1)' }}
-        >
-          MD Zahidul
-        </h2>
-        <h2
           className="poppins font-black uppercase leading-tight mb-4"
-          style={{ fontSize: 'clamp(0.8rem, 1.9vw, 1.1rem)', letterSpacing: '0.06em', color: 'var(--text-1)' }}
+          style={{ fontSize: 'clamp(1rem, 2.2vw, 1.3rem)', letterSpacing: '0.06em', color: 'var(--text-1)', whiteSpace: 'nowrap' }}
         >
-          Islam
+          MD Zahidul Islam
         </h2>
 
         {/* Divider */}
@@ -98,11 +92,10 @@ export default function LeftPanel() {
 
         {/* Title */}
         <p
-          className="open-sans uppercase leading-relaxed mb-2"
-          style={{ fontSize: '0.6rem', letterSpacing: '0.2em', color: 'var(--text-3)' }}
+          className="open-sans uppercase mb-2"
+          style={{ fontSize: '0.62rem', letterSpacing: '0.2em', color: 'var(--text-3)', whiteSpace: 'nowrap' }}
         >
-          Automotive Software
-          <br />Engineer
+          Automotive Software Engineer
         </p>
 
         {/* Location */}

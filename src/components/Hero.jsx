@@ -40,7 +40,7 @@ function TypeWriter() {
       <h2
         className="poppins font-semibold uppercase"
         style={{
-          fontSize: 'clamp(0.6rem, 1.6vw, 0.82rem)',
+          fontSize: 'clamp(0.8rem, 1.8vw, 1rem)',
           color: 'var(--text-2)',
           letterSpacing: '0.16em',
           minHeight: '1.2em',
@@ -85,7 +85,7 @@ export default function Hero({ onAbout, onContact }) {
         {/* Eyebrow */}
         <p
           className="poppins font-semibold uppercase mb-4"
-          style={{ fontSize: '0.6rem', letterSpacing: '0.42em', color: 'var(--text-4)' }}
+          style={{ fontSize: '0.75rem', letterSpacing: '0.42em', color: 'var(--text-4)' }}
         >
           Hello, I Am
         </p>
@@ -93,7 +93,7 @@ export default function Hero({ onAbout, onContact }) {
         {/* Name */}
         <h1
           className="poppins font-black uppercase leading-none mb-4"
-          style={{ fontSize: 'clamp(1.6rem, 4.2vw, 3.2rem)', letterSpacing: '-0.02em', color: 'var(--text-1)', whiteSpace: 'nowrap' }}
+          style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4.5rem)', letterSpacing: '-0.02em', color: 'var(--text-1)', whiteSpace: 'nowrap' }}
           data-hover
         >
           MD Zahidul Islam
@@ -105,7 +105,7 @@ export default function Hero({ onAbout, onContact }) {
         {/* Bio */}
         <p
           className="open-sans leading-[1.95] mb-9"
-          style={{ fontSize: '0.8rem', color: 'var(--text-3)', maxWidth: 380 }}
+          style={{ fontSize: '0.95rem', color: 'var(--text-3)', maxWidth: 460 }}
         >
           Passionate about building robust software for the automotive domain.
           Specialising in{' '}
