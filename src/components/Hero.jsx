@@ -1,63 +1,138 @@
-import { ArrowDown, Mail } from 'lucide-react'
-import { GitHubIcon, LinkedInIcon } from './Icons'
+import { useState, useEffect } from 'react'
+import { ArrowRight, Mail } from 'lucide-react'
 
-export default function Hero() {
+const ROLES = [
+  'Automotive Software Engineer',
+  'AUTOSAR Developer',
+  'Test Automation Expert',
+  'Embedded Systems Engineer',
+  'MSc Student @ TU Chemnitz',
+]
+
+function TypeWriter() {
+  const [idx,      setIdx]      = useState(0)
+  const [text,     setText]     = useState('')
+  const [deleting, setDeleting] = useState(false)
+
+  useEffect(() => {
+    const full = ROLES[idx]
+
+    if (!deleting && text === full) {
+      const t = setTimeout(() => setDeleting(true), 2200)
+      return () => clearTimeout(t)
+    }
+    if (deleting && text === '') {
+      setDeleting(false)
+      setIdx(i => (i + 1) % ROLES.length)
+      return
+    }
+
+    const speed = deleting ? 35 : 65
+    const t = setTimeout(() => {
+      setText(s => deleting ? s.slice(0, -1) : full.slice(0, s.length + 1))
+    }, speed)
+    return () => clearTimeout(t)
+  }, [text, deleting, idx])
+
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-blue-600/8 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-cyan-600/8 rounded-full blur-3xl" />
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_rgba(59,130,246,0.03)_0%,_transparent_70%)]" />
-      </div>
+    <div className="flex items-center gap-3 mb-7">
+      <div style={{ width: 28, height: 1, background: 'var(--accent)', flexShrink: 0, opacity: 0.7 }} />
+      <h2
+        className="poppins font-semibold uppercase"
+        style={{
+          fontSize: 'clamp(0.6rem, 1.6vw, 0.82rem)',
+          color: 'var(--text-2)',
+          letterSpacing: '0.16em',
+          minHeight: '1.2em',
+        }}
+      >
+        {text}
+        <span className="cursor-blink" style={{ color: 'var(--accent)', marginLeft: 1 }}>|</span>
+      </h2>
+    </div>
+  )
+}
 
-      <div className="relative z-10 max-w-3xl">
-        <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-6">
-          Automotive Software Engineer
+export default function Hero({ onAbout, onContact }) {
+  return (
+    <div
+      className="h-full flex flex-col items-start justify-center relative overflow-hidden"
+      style={{ background: 'var(--bg)', paddingLeft: 'clamp(2rem, 6vw, 4.5rem)', paddingRight: '5rem' }}
+    >
+      {/* Decorative blobs */}
+      <div className="blob" style={{ width: 400, height: 400, top: -80, right: -80, opacity: 0.5 }} />
+      <div className="blob" style={{ width: 280, height: 280, bottom: 60, left: 20, opacity: 0.3 }} />
+
+      <div className="relative z-10 max-w-lg w-full">
+        {/* Mobile: profile photo */}
+        <div
+          className="lg:hidden mb-6 overflow-hidden"
+          style={{
+            width: 88,
+            height: 88,
+            borderRadius: '50%',
+            border: '1px solid var(--border-avatar)',
+            boxShadow: '0 0 0 4px var(--bg-card)',
+          }}
+        >
+          <img
+            src="/assets/profile.jpg"
+            alt="MD Zahidul Islam"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
+          />
+        </div>
+
+        {/* Eyebrow */}
+        <p
+          className="poppins font-semibold uppercase mb-4"
+          style={{ fontSize: '0.6rem', letterSpacing: '0.42em', color: 'var(--text-4)' }}
+        >
+          Hello, I Am
         </p>
-        <h1 className="text-6xl md:text-8xl font-bold mb-5 leading-none">
-          <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
-            Zahid Ifrat
-          </span>
+
+        {/* Name */}
+        <h1
+          className="poppins font-black uppercase leading-none mb-4"
+          style={{ fontSize: 'clamp(1.6rem, 4.2vw, 3.2rem)', letterSpacing: '-0.02em', color: 'var(--text-1)', whiteSpace: 'nowrap' }}
+          data-hover
+        >
+          MD Zahidul Islam
         </h1>
-        <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-8 rounded-full" />
-        <p className="text-slate-400 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
-          Passionate about building robust software solutions for the automotive domain.
-          Specialising in AUTOSAR architecture, embedded systems, and cybersecurity —
-          currently pursuing my MSc in Automotive Software Engineering in Germany.
+
+        {/* Typewriter role */}
+        <TypeWriter />
+
+        {/* Bio */}
+        <p
+          className="open-sans leading-[1.95] mb-9"
+          style={{ fontSize: '0.8rem', color: 'var(--text-3)', maxWidth: 380 }}
+        >
+          Passionate about building robust software for the automotive domain.
+          Specialising in{' '}
+          <span style={{ color: 'var(--text-2)' }}>AUTOSAR</span>,{' '}
+          <span style={{ color: 'var(--text-2)' }}>embedded systems</span>, and{' '}
+          <span style={{ color: 'var(--text-2)' }}>test automation</span>.
+          Currently pursuing an MSc at TU Chemnitz, Germany.
         </p>
-        <div className="flex flex-wrap gap-4 justify-center mb-12">
-          <a
-            href="#projects"
-            className="bg-blue-500 hover:bg-blue-600 text-white px-7 py-3 rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5"
-          >
-            View My Work
-          </a>
-          <a
-            href="#contact"
-            className="border border-slate-600 hover:border-blue-400 text-slate-300 hover:text-blue-400 px-7 py-3 rounded-lg font-medium transition-all duration-200 hover:-translate-y-0.5"
-          >
-            Get in Touch
-          </a>
-        </div>
-        <div className="flex gap-6 justify-center text-slate-500">
-          <a href="https://github.com/Imifrat" target="_blank" rel="noreferrer"
-            className="hover:text-blue-400 transition-colors hover:-translate-y-0.5 transform duration-200">
-            <GitHubIcon size={22} />
-          </a>
-          <a href="https://linkedin.com/in/zahidifrat" target="_blank" rel="noreferrer"
-            className="hover:text-blue-400 transition-colors hover:-translate-y-0.5 transform duration-200">
-            <LinkedInIcon size={22} />
-          </a>
-          <a href="mailto:zahid.ifrat@gmail.com"
-            className="hover:text-blue-400 transition-colors hover:-translate-y-0.5 transform duration-200">
-            <Mail size={22} />
-          </a>
+
+        {/* CTAs */}
+        <div className="flex flex-wrap gap-3">
+          <button onClick={onAbout} className="btn-main">
+            More About Me
+            <span className="btn-icon"><ArrowRight size={13} /></span>
+          </button>
+          <button onClick={onContact} className="btn-main">
+            Contact Me
+            <span className="btn-icon"><Mail size={13} /></span>
+          </button>
         </div>
       </div>
 
-      <a href="#about" className="absolute bottom-10 text-slate-600 hover:text-blue-400 transition-colors animate-bounce">
-        <ArrowDown size={22} />
-      </a>
-    </section>
+      {/* Left edge accent line */}
+      <div
+        className="absolute bottom-10 left-0"
+        style={{ width: 2, height: 60, background: 'linear-gradient(to bottom, transparent, var(--border-hover))' }}
+      />
+    </div>
   )
 }
