@@ -52,9 +52,8 @@ const POSTS = [
 ]
 
 /* ── Blogger config ── */
-const BLOG_ID    = '2230030199150271315'
-const FEED_URL   = `https://www.blogger.com/feeds/${BLOG_ID}/posts/default?alt=json&max-results=20`
-const PUBLIC_URL = `https://www.blogger.com/blog/posts/${BLOG_ID}`
+const PUBLIC_URL = 'https://uniqueztech.blogspot.com'
+const FEED_URL   = `${PUBLIC_URL}/feeds/posts/default?alt=json&max-results=20`
 
 /* Strip HTML tags and decode basic entities */
 function stripHtml(html = '') {
