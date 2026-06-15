@@ -52,8 +52,17 @@ const POSTS = [
 ]
 
 /* ── Blogger config ── */
-const PUBLIC_URL = 'https://uniqueztech.blogspot.com'
-const FEED_URL   = `${PUBLIC_URL}/feeds/posts/default?alt=json&max-results=20`
+const PUBLIC_URL  = 'https://uniqueztech.blogspot.com'
+const FEED_URL    = `${PUBLIC_URL}/feeds/posts/default?alt=json&max-results=20`
+const FB_URL      = 'https://www.facebook.com/Zahid.Ifrat/'
+
+function FbIcon({ size = 16 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+    </svg>
+  )
+}
 
 /* Strip HTML tags and decode basic entities */
 function stripHtml(html = '') {
@@ -201,13 +210,26 @@ function TravelEmpty({ failed }) {
           ? 'Your Blogger posts will appear here automatically once your blog is public and has posts.'
           : 'Travel stories, country tours and personal experiences will appear here automatically as you publish on Blogger.'}
       </p>
-      <button
-        onClick={() => window.open(PUBLIC_URL, '_blank', 'noopener,noreferrer')}
-        className="btn-main"
-      >
-        Visit My Blog
-        <span className="btn-icon"><ExternalLink size={13} /></span>
-      </button>
+      <div className="flex items-center gap-3">
+        <button
+          onClick={() => window.open(PUBLIC_URL, '_blank', 'noopener,noreferrer')}
+          className="btn-main"
+        >
+          Visit My Blog
+          <span className="btn-icon"><ExternalLink size={13} /></span>
+        </button>
+        <button
+          onClick={() => window.open(FB_URL, '_blank', 'noopener,noreferrer')}
+          aria-label="Facebook"
+          title="Facebook"
+          className="flex items-center justify-center rounded-full glass transition-all duration-300"
+          style={{ width: 46, height: 46, color: 'var(--text-3)', flexShrink: 0 }}
+          onMouseEnter={e => { e.currentTarget.style.color = '#1877f2'; e.currentTarget.style.borderColor = '#1877f2' }}
+          onMouseLeave={e => { e.currentTarget.style.color = 'var(--text-3)'; e.currentTarget.style.borderColor = '' }}
+        >
+          <FbIcon size={16} />
+        </button>
+      </div>
     </div>
   )
 }
@@ -236,13 +258,24 @@ function TravelTab() {
       <div className="grid gap-5 sm:grid-cols-2">
         {posts.map(post => <BloggerCard key={post.id} post={post} />)}
       </div>
-      <div className="mt-8 flex justify-center">
+      <div className="mt-8 flex items-center justify-center gap-3">
         <button
           onClick={() => window.open(PUBLIC_URL, '_blank', 'noopener,noreferrer')}
           className="btn-main"
         >
           View All on Blogger
           <span className="btn-icon"><ExternalLink size={13} /></span>
+        </button>
+        <button
+          onClick={() => window.open(FB_URL, '_blank', 'noopener,noreferrer')}
+          aria-label="Facebook"
+          title="Facebook"
+          className="flex items-center justify-center rounded-full glass transition-all duration-300"
+          style={{ width: 46, height: 46, color: 'var(--text-3)', flexShrink: 0 }}
+          onMouseEnter={e => { e.currentTarget.style.color = '#1877f2'; e.currentTarget.style.borderColor = '#1877f2' }}
+          onMouseLeave={e => { e.currentTarget.style.color = 'var(--text-3)'; e.currentTarget.style.borderColor = '' }}
+        >
+          <FbIcon size={16} />
         </button>
       </div>
     </>
