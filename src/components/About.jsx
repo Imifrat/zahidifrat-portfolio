@@ -201,15 +201,17 @@ export default function About({ onClose }) {
           <div className="grid sm:grid-cols-2 gap-10">
             <div>
               <h3 className="poppins font-bold uppercase mb-5 flex items-center gap-2" style={{ fontSize: '0.7rem', letterSpacing: '0.14em', color: 'var(--text-2)' }}>
-                <span style={{ color: 'var(--border-hover)' }}>●</span> Experience
+                <span style={{ color: 'var(--border-hover)' }}>●</span> Academic Projects
               </h3>
               <ul className="timeline-list">
-                <TItem date="2025 – Present" title="Research Assistant"
-                  sub="Professur Automotive Software Engineering, TU Chemnitz — AUTOSAR system design and test automation." />
-                <TItem date="2024 – 2025" title="MSc Thesis Research"
-                  sub="VEOS-based virtual ECU validation and dSpace SystemDesk integration for model-based testing." />
-                <TItem date="2023 – 2024" title="Student Projects"
-                  sub="Automotive cybersecurity analysis, Python-based test frameworks, and embedded software prototypes." />
+                <TItem date="2025 – Present" title="AUTOSAR SWC Framework"
+                  sub="Designed and implemented Counter, Adder &amp; DataLogger Software Components in an AUTOSAR-compliant architecture using Port Interfaces, RTE generation and VFB communication." />
+                <TItem date="2025" title="Virtual ECU Test Bench"
+                  sub="Built a complete virtual ECU simulation environment using dSpace VEOS and SystemDesk for automated regression testing without physical hardware." />
+                <TItem date="2025" title="Automotive CyberSec Scanner"
+                  sub="Python-based threat analysis tool implementing TARA methodology for ISO/SAE 21434 compliance assessment of automotive ECU software." />
+                <TItem date="2024 – 2025" title="CAN Bus Automation Suite"
+                  sub="Comprehensive test automation suite for CAN bus communication testing — DBC parsing, message validation, error injection and automated HTML report generation." />
               </ul>
             </div>
             <div>
@@ -217,10 +219,14 @@ export default function About({ onClose }) {
                 <span style={{ color: 'var(--border-hover)' }}>●</span> Education
               </h3>
               <ul className="timeline-list">
-                <TItem date="2023 – Present" title="MSc Automotive Software Engineering"
-                  sub="Technical University of Chemnitz, Germany — embedded software, AUTOSAR, and cybersecurity." />
-                <TItem date="Before 2023" title="BSc Computer Science &amp; Engineering"
-                  sub="Undergraduate degree in software engineering, algorithms, and computer networks." />
+                <TItem date="April 2025 – Present" title="MSc Automotive Software Engineering"
+                  sub="Technical University of Chemnitz, Germany — embedded software, AUTOSAR, cybersecurity and virtual ECU simulation." />
+                <TItem date="2019 – 2023" title="BSc Computer Science"
+                  sub="Manarat International University — software engineering, algorithms, data structures and computer networks." />
+                <TItem date="2015 – 2017" title="Higher Secondary (Alim)"
+                  sub="Darunnazat Siddikia Kamil Madrasah — science group with focus on mathematics and physics." />
+                <TItem date="2013 – 2015" title="Secondary School (Dakhil)"
+                  sub="Manikdi Islamia Alim Madrasah — foundational sciences, mathematics and general studies." />
               </ul>
             </div>
           </div>
