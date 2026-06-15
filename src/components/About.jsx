@@ -76,11 +76,11 @@ const SKILLS = [
 
 function InfoRow({ label, children }) {
   return (
-    <div className="flex items-start gap-2 py-2" style={{ borderBottom: '1px solid var(--border)' }}>
-      <span className="open-sans font-semibold flex-shrink-0 pt-0.5" style={{ fontSize: '0.65rem', letterSpacing: '0.08em', color: 'var(--text-4)', minWidth: 110, textTransform: 'uppercase' }}>
+    <div className="flex items-start gap-2 py-2.5" style={{ borderBottom: '1px solid var(--border)' }}>
+      <span className="open-sans font-semibold flex-shrink-0 pt-0.5" style={{ fontSize: '0.72rem', letterSpacing: '0.08em', color: 'var(--text-4)', minWidth: 120, textTransform: 'uppercase' }}>
         {label}
       </span>
-      <div className="open-sans" style={{ fontSize: '0.75rem', color: 'var(--text-2)' }}>{children}</div>
+      <div className="open-sans" style={{ fontSize: '0.85rem', color: 'var(--text-2)' }}>{children}</div>
     </div>
   )
 }
@@ -88,11 +88,11 @@ function InfoRow({ label, children }) {
 function TItem({ date, title, sub }) {
   return (
     <div className="timeline-item">
-      <span className="poppins inline-block mb-1 rounded" style={{ fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.1em', color: 'var(--text-4)', textTransform: 'uppercase' }}>
+      <span className="poppins inline-block mb-1 rounded" style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', color: 'var(--text-4)', textTransform: 'uppercase' }}>
         {date}
       </span>
-      <h4 className="poppins font-bold mb-0.5" style={{ fontSize: '0.82rem', color: 'var(--text-1)' }}>{title}</h4>
-      <p className="open-sans leading-relaxed" style={{ fontSize: '0.72rem', color: 'var(--text-3)' }}>{sub}</p>
+      <h4 className="poppins font-bold mb-0.5" style={{ fontSize: '0.92rem', color: 'var(--text-1)' }}>{title}</h4>
+      <p className="open-sans leading-relaxed" style={{ fontSize: '0.8rem', color: 'var(--text-3)' }}>{sub}</p>
     </div>
   )
 }
@@ -133,7 +133,7 @@ export default function About({ onClose }) {
 
         {/* Personal info */}
         <div className="mb-10">
-          <p className="section-label mb-4" style={{ fontSize: '0.6rem' }}>Personal Infos</p>
+          <p className="section-label mb-4" style={{ fontSize: '0.7rem' }}>Personal Infos</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10">
             <div>
               <InfoRow label="First Name">MD Zahidul</InfoRow>
