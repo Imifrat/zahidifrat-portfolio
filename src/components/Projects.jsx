@@ -191,7 +191,7 @@ export default function Projects({ onClose }) {
       <CloseBtn onClick={onClose} />
       <DetailModal proj={detail} onClose={() => setDetail(null)} />
 
-      <div style={{ padding: '3.5rem 3.5rem 5rem' }}>
+      <div style={{ padding: 'clamp(1.2rem, 5vw, 3.5rem) clamp(1.2rem, 5vw, 3.5rem) 5rem' }}>
         <SectionHead label="My Work" title="My" accent="Projects" watermark="Work" />
 
         {/* Main tab switcher */}

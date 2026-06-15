@@ -366,7 +366,7 @@ export default function Blog({ onClose }) {
       {spinStyle}
       <CloseBtn onClick={onClose} />
 
-      <div style={{ padding: '3.5rem 3.5rem 5rem', maxWidth: 900 }}>
+      <div style={{ padding: 'clamp(1.2rem, 5vw, 3.5rem) clamp(1.2rem, 5vw, 3.5rem) 5rem', maxWidth: 900 }}>
         <SectionHead label="Articles & Stories" title="My" accent="Blog" watermark="Blog" />
 
         {/* Tab switcher */}

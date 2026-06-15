@@ -131,6 +131,11 @@ html.light {
   ::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 4px; }
 
   a, button { cursor: none; }
+
+  @media (pointer: coarse) {
+    body { cursor: auto; }
+    a, button { cursor: auto; }
+  }
 }
 
 /* ════════════════════════════════════════════

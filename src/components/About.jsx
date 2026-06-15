@@ -128,7 +128,7 @@ export default function About({ onClose }) {
     <div className="min-h-full" style={{ background: 'var(--bg-panel)' }}>
       <CloseBtn onClick={onClose} />
 
-      <div style={{ padding: '3.5rem 3.5rem 5rem', maxWidth: 820 }}>
+      <div style={{ padding: 'clamp(1.2rem, 5vw, 3.5rem) clamp(1.2rem, 5vw, 3.5rem) 5rem', maxWidth: 820 }}>
         <SectionHead label="Who I Am" title="About" accent="Me" watermark="Resume" />
 
         {/* Personal info */}

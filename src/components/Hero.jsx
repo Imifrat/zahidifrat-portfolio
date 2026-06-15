@@ -57,7 +57,7 @@ export default function Hero({ onAbout, onContact }) {
   return (
     <div
       className="h-full flex flex-col items-start justify-center relative overflow-hidden"
-      style={{ background: 'var(--bg)', paddingLeft: 'clamp(2rem, 6vw, 4.5rem)', paddingRight: '5rem' }}
+      style={{ background: 'var(--bg)', paddingLeft: 'clamp(1.2rem, 6vw, 4.5rem)', paddingRight: 'clamp(1.2rem, 8vw, 5rem)', paddingBottom: '4rem' }}
     >
       {/* Decorative blobs */}
       <div className="blob" style={{ width: 400, height: 400, top: -80, right: -80, opacity: 0.5 }} />
@@ -92,8 +92,8 @@ export default function Hero({ onAbout, onContact }) {
 
         {/* Name */}
         <h1
-          className="poppins font-black uppercase leading-none mb-4"
-          style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4.5rem)', letterSpacing: '-0.02em', color: 'var(--text-1)', whiteSpace: 'nowrap' }}
+          className="poppins font-black uppercase leading-none mb-4 lg:whitespace-nowrap"
+          style={{ fontSize: 'clamp(1.7rem, 7vw, 4.5rem)', letterSpacing: '-0.02em', color: 'var(--text-1)' }}
           data-hover
         >
           MD Zahidul Islam

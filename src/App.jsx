@@ -74,6 +74,9 @@ function CustomCursor() {
     willChange:      'transform',
   }
 
+  const isTouch = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches
+  if (isTouch) return null
+
   return (
     <>
       <div ref={ring} style={ringStyle} />
