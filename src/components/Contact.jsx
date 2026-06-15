@@ -73,6 +73,56 @@ function SuccessPopup({ onClose }) {
   )
 }
 
+/* ── Captcha checkbox ── */
+function CaptchaBox({ onVerified }) {
+  const [stage, setStage] = useState('idle') // idle | checking | done
+
+  const handleClick = () => {
+    if (stage !== 'idle') return
+    setStage('checking')
+    setTimeout(() => {
+      setStage('done')
+      onVerified()
+    }, 1800)
+  }
+
+  return (
+    <div className="captcha-box" style={{ maxWidth: '100%', userSelect: 'none' }}>
+      <div
+        onClick={handleClick}
+        style={{ cursor: stage === 'idle' ? 'pointer' : 'default' }}
+      >
+        {stage === 'idle' && (
+          <div className="captcha-checkbox" style={{ cursor: 'pointer' }} />
+        )}
+        {stage === 'checking' && (
+          <div className="captcha-checkbox checking" />
+        )}
+        {stage === 'done' && (
+          <div className="captcha-checkbox checked" style={{ background: 'rgba(34,197,94,0.2)', borderColor: '#22c55e' }}>
+            <svg width={12} height={12} viewBox="0 0 12 12" fill="none">
+              <polyline points="2,6 5,9 10,3" stroke="#22c55e" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+        )}
+      </div>
+      <div>
+        <p className="open-sans" style={{ fontSize: '0.72rem', color: 'var(--text-2)' }}>
+          {stage === 'idle'    && "I'm not a robot"}
+          {stage === 'checking' && 'Verifying…'}
+          {stage === 'done'    && "I'm not a robot"}
+        </p>
+        <p className="open-sans" style={{ fontSize: '0.6rem', color: 'var(--text-4)', marginTop: 2 }}>reCAPTCHA · Privacy · Terms</p>
+      </div>
+      <div className="ml-auto flex-shrink-0">
+        <div style={{ width: 32, height: 32, borderRadius: 6, background: '#4285f4', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, color: '#fff', fontWeight: 900 }}>
+          {stage === 'done' ? '✓' : 'G'}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function ContactRow({ Icon, label, children }) {
   return (
     <li className="flex items-start gap-4">
@@ -113,10 +163,12 @@ function SocialLink({ Icon, url, label }) {
 }
 
 export default function Contact({ onClose }) {
-  const [form,    setForm]    = useState({ name: '', email: '', subject: '', message: '' })
-  const [sending, setSending] = useState(false)
-  const [success, setSuccess] = useState(false)
-  const [error,   setError]   = useState('')
+  const [form,     setForm]     = useState({ name: '', email: '', subject: '', message: '' })
+  const [sending,  setSending]  = useState(false)
+  const [success,  setSuccess]  = useState(false)
+  const [error,    setError]    = useState('')
+  const [captcha,  setCaptcha]  = useState(false)
+  const [captchaKey, setCaptchaKey] = useState(0)
 
   const set = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
@@ -141,6 +193,8 @@ export default function Contact({ onClose }) {
       if (data.success) {
         setSuccess(true)
         setForm({ name: '', email: '', subject: '', message: '' })
+        setCaptcha(false)
+        setCaptchaKey(k => k + 1)
       } else {
         setError(data.message || 'Submission failed. Please try again.')
       }
@@ -210,7 +264,15 @@ export default function Contact({ onClose }) {
                 <p className="open-sans text-sm px-1" style={{ color: '#f87171' }}>{error}</p>
               )}
 
-              <button type="submit" className="btn-main" disabled={sending}>
+              {/* Captcha — must verify before sending */}
+              <CaptchaBox key={captchaKey} onVerified={() => setCaptcha(true)} />
+
+              <button
+                type="submit"
+                className="btn-main"
+                disabled={sending || !captcha}
+                style={{ opacity: captcha ? 1 : 0.4, cursor: captcha ? 'none' : 'not-allowed' }}
+              >
                 {sending ? 'Sending…' : 'Send Message'}
                 <span className="btn-icon"><Send size={13} /></span>
               </button>
