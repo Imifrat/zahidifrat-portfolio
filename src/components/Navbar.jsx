@@ -52,7 +52,7 @@ export default function Navbar() {
           ))}
           <li>
             <a
-              href="mailto:zahid.ifrat@gmail.com"
+              href="mailto:myportfolio@zahidifrat.com"
               className="text-sm font-semibold text-indigo-400 border border-indigo-400/40 hover:border-indigo-400 hover:bg-indigo-400/10 px-4 py-2 rounded-lg transition-all duration-200"
             >
               Hire Me
@@ -88,7 +88,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="mailto:zahid.ifrat@gmail.com"
+            href="mailto:myportfolio@zahidifrat.com"
             className="w-max text-indigo-400 border border-indigo-400/40 px-4 py-2 rounded-lg text-sm font-semibold"
           >
             Hire Me

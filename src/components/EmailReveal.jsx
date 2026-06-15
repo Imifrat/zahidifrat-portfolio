@@ -26,13 +26,13 @@ export default function EmailReveal() {
           </div>
         </div>
         <a
-          href="mailto:zahid.ifrat@gmail.com"
+          href="mailto:myportfolio@zahidifrat.com"
           className="open-sans font-semibold transition-colors duration-200"
           style={{ fontSize: '0.78rem', color: 'var(--text-2)' }}
           onMouseEnter={e => { e.currentTarget.style.color = 'var(--text-1)'; e.currentTarget.style.textShadow = 'var(--text-glow)' }}
           onMouseLeave={e => { e.currentTarget.style.color = 'var(--text-2)'; e.currentTarget.style.textShadow = 'none' }}
         >
-          zahid.ifrat@gmail.com
+          myportfolio@zahidifrat.com
         </a>
       </div>
     )

@@ -4,7 +4,7 @@ import { GitHubIcon, LinkedInIcon } from './Icons'
 const SOCIALS = [
   { Icon: GitHubIcon,   href: 'https://github.com/Imifrat',           label: 'GitHub'   },
   { Icon: LinkedInIcon, href: 'https://linkedin.com/in/zahidifrat',   label: 'LinkedIn' },
-  { Icon: Mail,         href: 'mailto:zahid.ifrat@gmail.com',         label: 'Email'    },
+  { Icon: Mail,         href: 'mailto:myportfolio@zahidifrat.com',    label: 'Email'    },
 ]
 
 export default function Footer() {

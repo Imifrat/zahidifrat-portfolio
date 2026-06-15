@@ -26,13 +26,13 @@ export default function PhoneReveal() {
           </div>
         </div>
         <a
-          href="tel:+491624749479"
+          href="tel:+49"
           className="open-sans font-semibold transition-colors duration-200"
           style={{ fontSize: '0.78rem', color: 'var(--text-2)' }}
           onMouseEnter={e => { e.currentTarget.style.color = 'var(--text-1)'; e.currentTarget.style.textShadow = 'var(--text-glow)' }}
           onMouseLeave={e => { e.currentTarget.style.color = 'var(--text-2)'; e.currentTarget.style.textShadow = 'none' }}
         >
-          +49 162 474 9479
+          +49
         </a>
       </div>
     )
