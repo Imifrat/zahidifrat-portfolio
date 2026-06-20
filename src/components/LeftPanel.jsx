@@ -1,5 +1,5 @@
 import { Moon, Sun } from 'lucide-react'
-import { GitHubIcon, LinkedInIcon, XingIcon, TwitterIcon, ResearchGateIcon } from './Icons'
+import { GitHubIcon, LinkedInIcon, XingIcon, TwitterIcon, ResearchGateIcon, FacebookIcon, InstagramIcon } from './Icons'
 import { useTheme } from '../context/ThemeContext'
 
 const SOCIALS = [
@@ -8,6 +8,8 @@ const SOCIALS = [
   { Icon: XingIcon,          url: 'https://www.xing.com/profile/MDZahidul_Islam018615',            label: 'Xing'         },
   { Icon: TwitterIcon,       url: 'https://x.com/Zahidifrat',                                      label: 'Twitter / X'  },
   { Icon: ResearchGateIcon,  url: 'https://www.researchgate.net/profile/Zahidul-Islam-55',         label: 'ResearchGate' },
+  { Icon: FacebookIcon,      url: 'https://www.facebook.com/Zahid.Ifrat/',                          label: 'Facebook'     },
+  { Icon: InstagramIcon,     url: 'https://www.instagram.com/zahid.ifrat/',                         label: 'Instagram'    },
 ]
 
 function SocialBtn({ Icon, url, label }) {
