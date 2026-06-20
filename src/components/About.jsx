@@ -1,5 +1,5 @@
 import { X, Download } from 'lucide-react'
-import { GitHubIcon, LinkedInIcon, XingIcon, TwitterIcon, ResearchGateIcon, FacebookIcon, InstagramIcon } from './Icons'
+import { GitHubIcon, LinkedInIcon, XingIcon, TwitterIcon, ResearchGateIcon } from './Icons'
 import EmailReveal from './EmailReveal'
 import { useInView } from '../hooks/useInView'
 
@@ -101,10 +101,8 @@ const SOCIALS = [
   { Icon: GitHubIcon,       url: 'https://github.com/Imifrat',                                  label: 'GitHub'       },
   { Icon: LinkedInIcon,     url: 'https://www.linkedin.com/in/zahid-ifrat/',                    label: 'LinkedIn'     },
   { Icon: XingIcon,         url: 'https://www.xing.com/profile/MDZahidul_Islam018615',          label: 'Xing'         },
-  { Icon: TwitterIcon,      url: 'https://x.com/Zahidifrat',                                    label: 'Twitter / X'  },
   { Icon: ResearchGateIcon, url: 'https://www.researchgate.net/profile/Zahidul-Islam-55',       label: 'ResearchGate' },
-  { Icon: FacebookIcon,     url: 'https://www.facebook.com/Zahid.Ifrat/',                        label: 'Facebook'     },
-  { Icon: InstagramIcon,    url: 'https://www.instagram.com/zahid.ifrat/',                       label: 'Instagram'    },
+  { Icon: TwitterIcon,      url: 'https://x.com/Zahidifrat',                                    label: 'Twitter / X'  },
 ]
 
 function SocialBtn({ Icon, url, label }) {
